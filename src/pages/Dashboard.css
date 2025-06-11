@@ -1,0 +1,160 @@
+.business-dashboard {
+    max-width: 1000px; /* Légèrement augmenté pour plus d'espace */
+    margin: 40px auto;
+    padding: 40px;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background-color: #0f131a; /* Noir bleuté plus profond */
+    color: #e8edf3; /* Texte plus lumineux */
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(88, 166, 255, 0.08);
+}
+
+.business-title {
+    text-align: center;
+    font-size: 3.2rem;
+    margin-bottom: 35px;
+    color: #6ab0ff; /* Bleu plus clair et lumineux */
+    letter-spacing: 1.2px;
+    font-weight: 300; /* Plus doux */
+    text-shadow: 0 2px 10px rgba(88, 166, 255, 0.15);
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(88, 166, 255, 0.15);
+}
+
+.business-welcome {
+    background: rgba(30, 36, 48, 0.7); /* Gris acier plus foncé */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    text-align: center;
+    color: #d4e2f7;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2), 
+                inset 0 0 15px rgba(88, 166, 255, 0.1);
+    border: 1px solid rgba(88, 166, 255, 0.05);
+    backdrop-filter: blur(4px);
+    line-height: 1.8;
+}
+
+.business-description {
+    text-align: center;
+    margin-bottom: 45px;
+    line-height: 1.8;
+    color: #b8c5d6; /* Couleur plus douce */
+    font-size: 1.1rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.business-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.3), transparent);
+    margin: 50px 100px; /* Plus espacé */
+    border: none;
+}
+
+.business-counter {
+    display: flex;
+    justify-content: center;
+    gap: 35px; /* Plus d'espace entre les éléments */
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.business-counter-item {
+    font-size: 1.4rem;
+    font-weight: 500; /* Plus doux que bold */
+    background: rgba(28, 33, 45, 0.7); /* Fond plus transparent */
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 
+                inset 0 0 12px rgba(88, 166, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(88, 166, 255, 0.1);
+    min-width: 180px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.business-counter-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25), 
+                inset 0 0 15px rgba(88, 166, 255, 0.3);
+}
+
+.business-footer {
+    margin-top: 60px;
+    padding: 35px;
+    background: rgba(27, 33, 45, 0.7); /* Fond plus transparent */
+    border-radius: 16px;
+    color: #cad3e0;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(88, 166, 255, 0.05);
+}
+
+.business-temple {
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.business-temple ul {
+    padding-left: 30px;
+    margin-top: 20px;
+    list-style-type: none;
+}
+
+.business-temple li {
+    padding: 10px 0;
+    position: relative;
+    color: #b8c5d6;
+    line-height: 1.7;
+}
+
+.business-temple li:before {
+    content: "•";
+    color: #6ab0ff;
+    font-size: 1.5rem;
+    position: absolute;
+    left: -25px;
+    top: 2px;
+}
+
+.business-loading {
+    text-align: center;
+    padding: 80px;
+    font-size: 1.4rem;
+    color: #8f9daf;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Ajouts pour le rendu premium */
+.business-dashboard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.4), transparent);
+}
+
+/* Effets de lumière subtils */
+.highlight {
+    position: relative;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle at center, rgba(88, 166, 255, 0.05) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}

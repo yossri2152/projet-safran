@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP8 : Relation ManyToMany entre entités</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .image-container {
+            text-align: center;
+            margin: 25px 0;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: white;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 12px 15px;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            border-radius: 0 4px 4px 0;
+        }
+        .step {
+            background-color: #e8f4fc;
+            padding: 18px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #2980b9;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TP8 : Relation ManyToMany entre entités</h1>
+
+    <div class="image-container">
+        <img src="/documents/oo.jpg" alt="Diagramme de relation ManyToMany">
+        <p><em>Diagramme de relation ManyToMany</em></p>
+    </div>
+
+    <p>L'objectif de ce TP est de relier l'entité Film existante avec une nouvelle entité nommée Acteur par une relation plusieurs à plusieurs (modélisée par l'annotation @ManyToMany). La règle de gestion étant : un ou plusieurs films sont tournés par un ou plusieurs acteurs et un ou plusieurs acteurs jouent dans un ou plusieurs films.</p>
+
+    <p>Cette relation sera modélisée dans la BD avec une table intermédiaire (nommé film_acteurs) dont la clé primaire est la jointure des clés primaires des tables film et acteur. On va considérer que l'entité Acteur est l'entité esclave dans cette relation (représenté par l'attribut mappedBy contenant l'instance de l'entité esclave).</p>
+
+    <div class="step">
+        <div class="step-title">Etape 1 : Modification et ajout des entités</div>
+        <p>Modifier l'entité Film en lui ajoutant un attribut de type liste des acteurs.</p>
+
+        <div class="image-container">
+            <img src="/documents/ad2.jpg" alt="Code Film avec liste d'acteurs">
+            <p><em>Code Film avec liste d'acteurs</em></p>
+        </div>
+
+        <p>On va créer une nouvelle entité nommé Acteur comme suit :</p>
+
+        <div class="image-container">
+            <img src="/documents/ad3.jpg" alt="Code entité Acteur">
+            <p><em>Code entité Acteur</em></p>
+        </div>
+
+        <p>Ajouter les 4 annotations de Lombok : @Getter @Setter @NoArgsConstructor @AllArgsConstructor</p>
+
+        <p>Démarrer l'application Spring Boot, les 2 tables acteur et film_acteurs sont crées dans la BD, comme le montre le log suivant :</p>
+
+        <div class="image-container">
+            <img src="/documents/ad4.jpg" alt="Log création tables">
+            <p><em>Log création tables</em></p>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-title">Etape 2 : Gestion des acteurs</div>
+        <p>Créer dans leurs packages respectifs tous les composants nécessaires pour la gestion des acteurs (indépendamment des films) à savoir :</p>
+        <ul>
+            <li>Interface ActeurRepository</li>
+            <li>Interface IServiceActeur</li>
+            <li>Classe ServiceActeur</li>
+            <li>Classe ActeurController</li>
+            <li>Classe RestActeurController</li>
+            <li>Vues Thymeleaf associées</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <div class="step-title">Etape 3 : Modification du formulaire d'ajout et de modification d'un film</div>
+        <p>L'association entre film et ses acteurs sera faite pendant l'ajout d'un nouveau film.</p>
+        <p>Ajouter dans le formulaire d'ajout d'un nouveau film :</p>
+        <ul>
+            <li>Un champ de type select multiple nommé "acteurs"</li>
+            <li>Permettre la sélection des acteurs ayant joué dans ce film</li>
+            <li>Les acteurs doivent être ajoutés préalablement dans la table</li>
+            <li>Adapter également le formulaire de modification</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <div class="step-title">Structure recommandée des fichiers</div>
+        <div class="code-block">
+public/
+├── documents/
+│   ├── tp8.html (ce fichier)
+│   ├── oo.jpg
+│   ├── ad2.jpg
+│   ├── ad3.jpg
+│   └── ad4.jpg
+└── index.html
+        </div>
+    </div>
+</body>
+</html>
